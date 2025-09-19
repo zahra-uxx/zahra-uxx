@@ -1,0 +1,54 @@
+class MahasiswaBaru:
+    def __init__(self):
+        self.data_mahasiswa = []
+
+    def tambah_mahasiswa(self, nisn, nama, jurusan, pembayaran):
+        mahasiswa = {
+            'NISN': nisn,
+            'Nama': nama,
+            'Jurusan': jurusan,
+            'Pembayaran': pembayaran
+        }
+        self.data_mahasiswa.append(mahasiswa)
+
+    def tampilkan_data_mahasiswa(self):
+        print("\nData Mahasiswa:")
+        for mahasiswa in self.data_mahasiswa:
+            print(f"NISN: {mahasiswa['NISN']}")
+            print(f"Nama: {mahasiswa['Nama']}")
+            print(f"Jurusan: {mahasiswa['Jurusan']}")
+            print(f"Pembayaran: {mahasiswa['Pembayaran']}")
+            print("-------------------------")
+
+def main():
+    penerimaan_mahasiswa = MahasiswaBaru()
+
+    while True:
+        print("\n== Program Penerimaan Mahasiswa Baru ==")
+        print("1. Tambah Mahasiswa")
+        print("2. Tampilkan Data Mahasiswa")
+        print("3. Keluar")
+
+        pilihan = input("Pilih menu (1/2/3): ")
+
+        if pilihan == '1':
+            nisn = input("Masukkan NISN mahasiswa: ")
+            nama = input("Masukkan nama mahasiswa: ")
+            jurusan = input("Masukkan jurusan kuliah: ")
+            pembayaran = input("Masukkan status pembayaran daftar ulang (Lunas/Belum): ")
+
+            penerimaan_mahasiswa.tambah_mahasiswa(nisn, nama, jurusan, pembayaran)
+            print("Data mahasiswa berhasil ditambahkan.")
+
+        elif pilihan == '2':
+            penerimaan_mahasiswa.tampilkan_data_mahasiswa()
+
+        elif pilihan == '3':
+            print("Program selesai.")
+            break
+
+        else:
+            print("Pilihan tidak valid. Silakan pilih kembali.")
+
+if __name__ == "__main__":
+    main()
